@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Pagination 分页组件</title>
+	<link rel="stylesheet" href="pagination.css">
+</head>
+<body>
+
+	<p>单个</p>
+	<div id="container3"></div>	
+	
+	<p>联动</p>
+	<div id="container"></div>	
+	<div id="container2"></div>
+
+	
+	<p>左浮动</p>
+	<div id="left" style="float:left"></div>
+	<br/>
+	<p style="text-align: center;">居中</p>
+	<div id="center" style="margin:0 auto;"></div>
+	<p style="text-align: right;">右浮动</p>
+	<div id="right" style="float:right"></div>
+	<script src="jquery.js"></script>
+	<script src="pagination.js"></script>
+	<script>
+		$('#container,#container2').pagination({
+			total : 1000,
+			count : 2,
+			callback : function(page){
+				alert('calback: ' + page);
+			}
+		});
+
+		$('#container3').pagination({
+			total : 100,
+			count : 10,
+			nowPage : 2,
+			callback : function(page){
+				alert('calback: ' + page);
+			}
+		});
+
+		$('#center,#left,#right').pagination({
+			total : 100,
+			count : 10,
+			callback : function(page){
+				alert('calback: ' + page);
+			}
+		});
+	</script>
+</body>
+</html>
